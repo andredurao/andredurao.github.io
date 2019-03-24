@@ -1,0 +1,4 @@
+# Ignore all logfiles and tempfiles.
+.ruby-version
+.rbenv-gemsets
+tmp/
