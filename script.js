@@ -38,7 +38,7 @@ const print = (text, className) => render([{ text: text, className: className }]
 let files = {
   'github.link': `https://github.com/andredurao`,
   'about.md': `
-    # I'm a software developer from Brazil.
+    # I'm a DevOps Engineer from Belo Horizonte / Brazil.
 
     With 10 years of full-stack web development experience,
     I can offer the technical expertise for web solutions.
@@ -50,18 +50,22 @@ let files = {
     * Frontend
       HTML, JS, CSS, Vue.js, React, Bootstrap
     * Databases
-      PostgreSQL, MySQL / MariaDB, MongoDB 
+      PostgreSQL, MySQL / MariaDB, MongoDB
     * Devops
       AWS, EC2, Docker, Kubernetes
     * Methodologies
       Agile, Scrum, TDD, BDD`,
   'cv.md': ``,
+  'ruby-cheat-sheet.md': `
+    * One line http static server:
+    ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd).start'
+  `,
   'bash-cheat-sheet.md': `
     * Redirect find error messages to null:
       find . -name 'some-name' 2 > /dev/null
   `,
   'docker-cheat-sheet.md': `
-    * Prune [DELETE] entire system ☠️⚠️:
+    * Prune [DELETE] containers, volumes and images ☠️⚠️:
       docker stop $(docker ps -a -q) && docker system prune -a -f --volumes
     * Search containers by their CPU Usage:
       docker stats --no-stream --format \
