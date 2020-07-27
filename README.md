@@ -1,3 +1,29 @@
+- [ ] https://github.com/gitname/react-gh-pages
+
+### Components:
+
+- [ ] Create content component: $prev
+- [ ] Create input component: $prompt
+
+### Functions
+
+- [ ] render
+- [ ] print
+- [ ] tabComplete
+- [ ] showKey
+- [ ] run
+- [ ] inputText
+- [ ] showLink
+- [ ] clear
+- [ ] echo
+- [ ] help
+- [ ] ls
+- [ ] cat
+- [ ] whoami
+- [ ] cv
+- [ ] github
+- [ ] linkedin
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

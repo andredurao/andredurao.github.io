@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono");
+
+.Terminal {
+  background: #1d252c;
+  color: #fff;
+  font-family: IBM Plex Mono;
+  font-size: 16pt;
+}
+
+#prompt {
+  background: #1d252c;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: bold;
+}
+
+#prompt::before {
+  content: "~ $";
+}
+
+#prompt:focus {
+  outline-width: 0;
+}
+
+.err {
+  color: #c3707d;
+}
+
+.ok {
+  color: #6ca27c;
+}
+
+.lt {
+  opacity: 0.6;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.input {
+  display: grid;
+  grid-template-columns: 2.2em auto;
+}
+
+#key{
+  font-size: 30px;
+  padding: 10px;
+  border: 2px solid #bdbdbd;
+  position: absolute;
+  right: 10px;
+  border-radius: 25%;
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  line-height: 50px;
+  text-align: center;
+  box-shadow: 10px 10px 50px -8px rgba(15, 160, 245, 0.85);
+}
+
+#key.hidden{
+  display: none;
+}
+
+#key.fade-out{
+  animation: fade-out 0.2s linear both;
+}
+
+@keyframes fade-out {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
