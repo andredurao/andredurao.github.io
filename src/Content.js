@@ -1,9 +1,13 @@
 import React from 'react';
 
-function Content() {
+function Content({ content }) {
   return (
     <div className="Content">
-      <div id='prev'></div>
+      <div id='prev'>
+        <pre>
+          { content }
+        </pre>
+      </div>
     </div >
   );
 }

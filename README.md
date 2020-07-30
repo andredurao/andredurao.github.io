@@ -24,6 +24,12 @@
 - [ ] github
 - [ ] linkedin
 
+https://1linelayouts.glitch.me/
+https://reactjs.org/docs/handling-events.html
+https://www.newline.co/fullstack-react/30-days-of-react/day-11/
+https://www.newline.co/@andreeamaco/how-to-use-react-onclick-events-in-class-and-functional-components--fb63a01e
+https://www.robinwieruch.de/react-function-component
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
