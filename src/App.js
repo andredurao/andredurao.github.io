@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Terminal from './Terminal.js';
+import Terminal from './Terminal';
+import terminalParse from './TerminalFunctions';
 import './App.css';
 
 function App() {
@@ -7,6 +8,8 @@ function App() {
   const handleKeyDown = event => {
     if (event.key === 'Enter') {
       console.log('Enter');
+      debugger;
+      terminalParse(terminalContent);
       // run();
       setTerminalContent("test");
     } else if (event.key === 'ArrowUp') {
