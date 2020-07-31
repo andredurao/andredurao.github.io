@@ -4,15 +4,17 @@ import Content from './Content.js';
 import terminalParse from './TerminalFunctions';
 
 function Terminal() {
-  const [command, setCommand] = useState('');
+  const [state, setState] = useState({command: '', history: []});
 
   const handleChange = event => {
-    setCommand(event.target.value);
+    setState({...state, command: event.target.value});
   };
 
   const handleKeyDown = event => {
+    const command = event.target.value;
     if (event.key === 'Enter') {
-      terminalParse(command);
+      setState({...state, history: [...state.history, command]});
+      terminalParse(state.command);
     } else if (event.key === 'ArrowUp') {
       // setCommand('');
       // seek history up
@@ -30,7 +32,7 @@ function Terminal() {
       <Content content='' />
       <div className='input'>
         <span>~ $</span>
-        <input id='prompt' type='text' autoComplete='off' spellCheck='false' onKeyDown={handleKeyDown} onChange={handleChange} value={command}>
+        <input id='prompt' type='text' autoComplete='off' spellCheck='false' onKeyDown={handleKeyDown} onChange={handleChange} value={state.command}>
         </input>
       </div>
       <div id='key' className='hidden'>⏎</div>
