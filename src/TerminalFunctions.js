@@ -1,6 +1,6 @@
 const terminalFiles = {
-  'github.link': 'https://github.com/andredurao',
-  'about.md': `
+  "github.link": "https://github.com/andredurao",
+  "about.md": `
     # I'm a DevOps Engineer from Belo Horizonte / Brazil.
 
     With 10 years of full-stack web development experience,
@@ -18,16 +18,16 @@ const terminalFiles = {
       AWS, EC2, Docker, Kubernetes
     * Methodologies
       Agile, Scrum, TDD, BDD`,
-  'cv.md': '',
-  'ruby-cheat-sheet.md': `
+  "cv.md": "",
+  "ruby-cheat-sheet.md": `
     * One line http static server:
     ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd).start'
   `,
-  'bash-cheat-sheet.md': `
+  "bash-cheat-sheet.md": `
     * Redirect find error messages to null:
       find . -name 'some-name' 2 > /dev/null
   `,
-  'docker-cheat-sheet.md': `
+  "docker-cheat-sheet.md": `
     * Prune [DELETE] containers, volumes and images ☠️⚠️:
       docker stop $(docker ps -a -q) && docker system prune -a -f --volumes
     * Search containers by their CPU Usage:
@@ -45,7 +45,7 @@ const terminalFunctions = {
     // $prev.innerHTML = '';
   },
   echo(...a) {
-    print(a.join(' '));
+    print(a.join(" "));
   },
   help() {
     print(`ls: show files and directories
@@ -64,7 +64,7 @@ linkedin: open linkedin page
   },
   whoami() {
     // print('andredurao', 'ok');
-    print('andredurao');
+    print("andredurao");
   },
   cv() {
     // window.open('AndreResume.pdf');
@@ -78,7 +78,7 @@ linkedin: open linkedin page
 };
 
 const terminalParse = (line) => {
-  const tokens = line.split(' ').filter((token) => (token));
+  const tokens = line.split(" ").filter((token) => token);
   if (tokens.length === 0) return;
   // print('~ $ ' + line);
   const command = tokens[0];

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Terminal from './Terminal';
-import './App.css';
+import React, { useState } from "react";
+import Terminal from "./Terminal";
+import "./App.css";
 
 function App() {
   return (

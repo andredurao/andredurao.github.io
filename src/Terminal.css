@@ -44,7 +44,7 @@ pre {
   grid-template-columns: 2.2em auto;
 }
 
-#key{
+#key {
   font-size: 30px;
   padding: 10px;
   border: 2px solid #bdbdbd;
@@ -59,19 +59,19 @@ pre {
   box-shadow: 10px 10px 50px -8px rgba(15, 160, 245, 0.85);
 }
 
-#key.hidden{
+#key.hidden {
   display: none;
 }
 
-#key.fade-out{
+#key.fade-out {
   animation: fade-out 0.2s linear both;
 }
 
 @keyframes fade-out {
   0% {
-      opacity: 1;
+    opacity: 1;
   }
   100% {
-      opacity: 0;
+    opacity: 0;
   }
 }

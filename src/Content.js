@@ -1,12 +1,10 @@
-import React from 'react';
+import React from "react";
 
 function Content({ content }) {
   return (
     <div className="Content">
       <div id="prev">
-        <pre>
-          { content }
-        </pre>
+        <pre>{content}</pre>
       </div>
     </div>
   );
