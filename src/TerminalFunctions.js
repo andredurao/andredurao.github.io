@@ -1,5 +1,5 @@
 const terminalFiles = {
-  'github.link': `https://github.com/andredurao`,
+  'github.link': 'https://github.com/andredurao',
   'about.md': `
     # I'm a DevOps Engineer from Belo Horizonte / Brazil.
 
@@ -18,7 +18,7 @@ const terminalFiles = {
       AWS, EC2, Docker, Kubernetes
     * Methodologies
       Agile, Scrum, TDD, BDD`,
-  'cv.md': ``,
+  'cv.md': '',
   'ruby-cheat-sheet.md': `
     * One line http static server:
     ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd).start'
@@ -75,7 +75,7 @@ linkedin: open linkedin page
   linkedin() {
     // window.open('https://www.linkedin.com/in/andre-durao');
   },
-}
+};
 
 const terminalParse = (line) => {
   const tokens = line.split(' ').filter((token) => (token));
@@ -90,5 +90,5 @@ const terminalParse = (line) => {
     // print(`${command}: command not found`, 'err');
     console.log(`${command}: command not found`);
   }
-}
+};
 export default terminalParse;
