@@ -56,6 +56,13 @@ linkedin: open linkedin page
     const files = Object.keys(terminalFiles);
     return files.join("\n");
   },
+  cat(f) {
+    if(terminalFiles[f]) {
+      return terminalFiles[f];
+    } else {
+      return `cat: ${f}: No such file or directory`;
+    }
+  },
 };
 
 const terminalParse = (line) => {

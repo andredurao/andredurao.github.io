@@ -7,22 +7,24 @@
 
 ### Functions
 
-- [ ] render
 - [ ] print
+- [ ] print with status [ok, error] using old classNames
 - [ ] tabComplete
 - [ ] showKey
-- [ ] run
-- [ ] inputText
+- [x] run
+- [ ] up/down history
+- [x] inputText
 - [ ] showLink
 - [ ] clear
 - [x] echo
 - [x] help
-- [ ] ls
-- [ ] cat
+- [x] ls
+- [x] cat
 - [x] whoami
 - [ ] cv
 - [ ] github
 - [ ] linkedin
+- [ ] scroll screen after command
 
 https://1linelayouts.glitch.me/
 https://reactjs.org/docs/handling-events.html
