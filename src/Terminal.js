@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Terminal.css";
-import Content from "./Content.js";
+import Content from "./Content";
 import terminalParse from "./TerminalFunctions";
 
 function Terminal() {
@@ -15,7 +15,7 @@ function Terminal() {
     if (event.key === "Enter") {
       const result = terminalParse(state.command);
       setState({
-        ...state,
+        command: "",
         history: [...state.history, command],
         results: [...state.results, result],
       });
@@ -33,8 +33,8 @@ function Terminal() {
   };
   return (
     <div className="Terminal">
-      {state.results.map((result) => (
-        <Content content={result} />
+      {state.results.map((result, index) => (
+        <Content key={index} content={result} />
       ))}
       <div className="input">
         <span>~ $</span>

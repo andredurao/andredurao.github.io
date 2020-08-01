@@ -9,5 +9,4 @@ function Content({ content }) {
     </div>
   );
 }
-
 export default Content;

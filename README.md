@@ -15,11 +15,11 @@
 - [ ] inputText
 - [ ] showLink
 - [ ] clear
-- [ ] echo
-- [ ] help
+- [x] echo
+- [x] help
 - [ ] ls
 - [ ] cat
-- [ ] whoami
+- [x] whoami
 - [ ] cv
 - [ ] github
 - [ ] linkedin

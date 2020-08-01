@@ -36,59 +36,39 @@ const terminalFiles = {
  sort -k 3 -h -r | head`,
 };
 
-const print = (content) => {
-  console.log(content);
-};
-
 const terminalFunctions = {
-  clear() {
-    // $prev.innerHTML = '';
-  },
   echo(...a) {
-    print(a.join(" "));
+    return a.join(" ");
   },
   help() {
-    print(`ls: show files and directories
+    return `ls: show files and directories
 cat <file>: print a file out
 cv: open cv PDF file
 github: open github page
 linkedin: open linkedin page
 ...
-`);
-  },
-  ls() {
-    // Object.keys(files).forEach(print);
-  },
-  cat(f) {
-    // f.endsWith('.link') ? showLink(files[f]) : print(files[f]);
+`;
   },
   whoami() {
-    // print('andredurao', 'ok');
-    print("andredurao");
+    return "andredurao";
   },
-  cv() {
-    // window.open('AndreResume.pdf');
-  },
-  github() {
-    // window.open('https://github.com/andredurao');
-  },
-  linkedin() {
-    // window.open('https://www.linkedin.com/in/andre-durao');
+  ls() {
+    const files = Object.keys(terminalFiles);
+    return files.join("\n");
   },
 };
 
 const terminalParse = (line) => {
+  const result = `~ $ ${line}`;
   const tokens = line.split(" ").filter((token) => token);
-  if (tokens.length === 0) return;
-  // print('~ $ ' + line);
+  // Empty line
+  if (tokens.length === 0) return result;
   const command = tokens[0];
   if (terminalFunctions[command]) {
     const params = tokens.slice(1);
-    console.log(`Running [${command}] : [params]`);
-    // funcs[command].apply(undefined, params);
-  } else {
-    // print(`${command}: command not found`, 'err');
-    console.log(`${command}: command not found`);
+    const functionResult = terminalFunctions[command].apply(undefined, params);
+    return `${result}\n${functionResult}`;
   }
+  return `${result}\n${command}: command not found`;
 };
 export default terminalParse;
