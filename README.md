@@ -12,7 +12,7 @@
 - [ ] tabComplete
 - [ ] showKey
 - [x] run
-- [ ] up/down history
+- [x] up/down history
 - [x] inputText
 - [ ] showLink
 - [ ] clear
