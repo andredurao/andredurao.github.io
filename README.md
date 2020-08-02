@@ -25,6 +25,10 @@
 - [ ] github
 - [ ] linkedin
 - [ ] scroll screen after command
+- [ ] github status page: https://github.com/anuraghazra/github-readme-stats
+- [ ] https://github-readme-stats.vercel.app/api?username=andredurao&show_icons=true&hide_border=true
+- [ ] https://github-readme-stats.vercel.app/api/top-langs/?username=andredurao&hide=vim%20script
+
 
 https://1linelayouts.glitch.me/
 https://reactjs.org/docs/handling-events.html

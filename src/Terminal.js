@@ -4,7 +4,14 @@ import Content from "./Content";
 import terminalParse from "./TerminalFunctions";
 
 function Terminal() {
-  const [state, setState] = useState({ command: "", history: [], results: [] });
+  const [state, setState] = useState(
+    {
+      command: "",
+      history: [],
+      historyIndex: 0,
+      results: [],
+    },
+  );
 
   const handleChange = (event) => {
     setState({ ...state, command: event.target.value });
@@ -14,16 +21,36 @@ function Terminal() {
     const command = event.target.value;
     if (event.key === "Enter") {
       const result = terminalParse(state.command);
-      setState({
-        command: "",
-        history: [...state.history, command],
-        results: [...state.results, result],
-      });
+      setState(
+        {
+          command: "",
+          history: [...state.history, command],
+          historyIndex: state.historyIndex + 1,
+          results: [...state.results, result],
+        },
+      );
     } else if (event.key === "ArrowUp") {
-      // setCommand('');
-      // seek history up
+      if (state.historyIndex <= state.history.length && state.historyIndex > 0) {
+        const newIndex = state.historyIndex - 1;
+        setState(
+          {
+            ...state,
+            command: state.history[newIndex],
+            historyIndex: newIndex,
+          },
+        );
+      }
     } else if (event.key === "ArrowDown") {
-      // seek history down
+      if (state.historyIndex < state.history.length - 1 && state.historyIndex >= 0) {
+        const newIndex = state.historyIndex + 1;
+        setState(
+          {
+            ...state,
+            command: state.history[newIndex],
+            historyIndex: newIndex,
+          },
+        );
+      }
     } else if (event.key === "Tab") {
       // complete
       event.preventDefault();
