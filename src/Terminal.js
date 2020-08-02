@@ -18,17 +18,9 @@ function Terminal() {
   };
 
   const handleKeyDown = (event) => {
-    const command = event.target.value;
+    const commandLine = event.target.value;
     if (event.key === "Enter") {
-      const result = terminalParse(state.command);
-      setState(
-        {
-          command: "",
-          history: [...state.history, command],
-          historyIndex: state.historyIndex + 1,
-          results: [...state.results, result],
-        },
-      );
+      terminalParse(commandLine, state, setState);
     } else if (event.key === "ArrowUp") {
       if (state.historyIndex <= state.history.length && state.historyIndex > 0) {
         const newIndex = state.historyIndex - 1;

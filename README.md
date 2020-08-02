@@ -15,7 +15,7 @@
 - [x] up/down history
 - [x] inputText
 - [ ] showLink
-- [ ] clear
+- [x] clear
 - [x] echo
 - [x] help
 - [x] ls
