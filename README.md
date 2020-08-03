@@ -9,7 +9,7 @@
 
 - [ ] print
 - [ ] print with status [ok, error] using old classNames
-- [ ] tabComplete
+- [x] tabComplete
 - [ ] showKey
 - [x] run
 - [x] up/down history

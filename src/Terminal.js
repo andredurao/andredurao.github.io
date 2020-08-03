@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Terminal.css";
 import Content from "./Content";
-import terminalParse from "./TerminalFunctions";
+import { terminalParse, tabComplete } from "./TerminalFunctions";
 
 function Terminal() {
   const [state, setState] = useState(
@@ -44,8 +44,10 @@ function Terminal() {
         );
       }
     } else if (event.key === "Tab") {
-      // complete
       event.preventDefault();
+      const completedCommandLine = tabComplete(commandLine);
+      // debugger;
+      setState({ ...state, command: completedCommandLine });
     } else {
       // reset historyIndex
     }

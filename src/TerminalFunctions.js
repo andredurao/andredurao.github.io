@@ -63,7 +63,20 @@ linkedin: open linkedin page
   },
 };
 
-const terminalParse = (commandLine, state, setState) => {
+export const tabComplete = (commandLine) => {
+  let result = commandLine;
+  const tokens = commandLine.split(" ").filter((token) => (token));
+  if (tokens.length === 0) return (commandLine);
+  const possibleTokens = Object.keys(tokens.length > 1 ? terminalFiles : terminalFunctions);
+  possibleTokens.forEach((possibleToken) => {
+    if (possibleToken.startsWith(tokens[tokens.length - 1])) {
+      result = [...tokens.slice(0, -1), possibleToken].join(" ");
+    }
+  });
+  return result;
+};
+
+export const terminalParse = (commandLine, state, setState) => {
   const result = `~ $ ${commandLine}`;
   const tokens = commandLine.split(" ").filter((token) => token);
   let commandResult = "";
@@ -83,4 +96,3 @@ const terminalParse = (commandLine, state, setState) => {
   }
   return commandResult;
 };
-export default terminalParse;
