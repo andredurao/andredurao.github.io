@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Terminal.css";
 import Content from "./Content";
 import { terminalParse, tabComplete } from "./TerminalFunctions";
@@ -49,11 +49,21 @@ function Terminal() {
       setState({ ...state, command: completedCommandLine });
     }
   };
+
+  const resultsEndRef = useRef(null)
+
+  const scrollToBottom = () => {
+    resultsEndRef.current.scrollIntoView({ behavior: "smooth" })
+  }
+
+  useEffect(scrollToBottom, [state.results]);
+
   return (
     <div className="Terminal">
-      {state.results.map((result, index) => (
-        <Content key={index} content={result} />
-      ))}
+      {
+        state.results.map((result, index) => <Content key={index} content={result} />)
+      }
+      <div ref={resultsEndRef} />
       <div className="input">
         <span>~ $</span>
         <input
