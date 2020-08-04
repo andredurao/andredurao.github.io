@@ -46,10 +46,7 @@ function Terminal() {
     } else if (event.key === "Tab") {
       event.preventDefault();
       const completedCommandLine = tabComplete(commandLine);
-      // debugger;
       setState({ ...state, command: completedCommandLine });
-    } else {
-      // reset historyIndex
     }
   };
   return (
@@ -62,6 +59,7 @@ function Terminal() {
         <input
           id="prompt"
           type="text"
+          autoFocus
           autoComplete="off"
           spellCheck="false"
           onKeyDown={handleKeyDown}
