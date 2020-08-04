@@ -1,10 +1,12 @@
 import React from "react";
+import "./Content.css";
 
-function Content({ content }) {
+function Content({ command, content, status }) {
   return (
     <div className="Content">
       <div id="prev">
-        <pre>{content}</pre>
+        <pre>{command}</pre>
+        <pre className={status}>{content}</pre>
       </div>
     </div>
   );

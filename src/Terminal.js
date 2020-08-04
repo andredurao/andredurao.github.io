@@ -50,18 +50,25 @@ function Terminal() {
     }
   };
 
-  const resultsEndRef = useRef(null)
+  const resultsEndRef = useRef(null);
 
   const scrollToBottom = () => {
-    resultsEndRef.current.scrollIntoView({ behavior: "smooth" })
-  }
+    resultsEndRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(scrollToBottom, [state.results]);
 
   return (
     <div className="Terminal">
       {
-        state.results.map((result, index) => <Content key={index} content={result} />)
+        state.results.map((result, index) => (
+          <Content
+            key={index}
+            command={result.command}
+            content={result.content}
+            status={result.status}
+          />
+        ))
       }
       <div ref={resultsEndRef} />
       <div className="input">

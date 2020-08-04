@@ -1,7 +1,12 @@
 import terminalFiles from "./FileSystem";
 
 const updateState = (state, setState, commandLine, result) => {
-  const commandResult = `~ $ ${commandLine}\n${result}`;
+  const commandResult = {
+    command: `~ $ ${commandLine}`,
+    content: result.content,
+    status: result.status,
+  };
+
   setState(
     {
       command: "",
@@ -14,38 +19,53 @@ const updateState = (state, setState, commandLine, result) => {
 
 const terminalFunctions = {
   echo(state, setState, commandLine, ...a) {
-    const result = a.join(" ");
+    const result = { content: a.join(" "), status: "" };
     updateState(state, setState, commandLine, result);
     return result;
   },
   help(state, setState, commandLine) {
-    const result = `ls: show files and directories
-cat <file>: print a file out
-cv: open cv PDF file
-github: open github page
-linkedin: open linkedin page
-...
-`;
+    const result = {
+      content: `ls: show files and directories
+                cat <file>: print a file out
+                cv: open cv PDF file
+                github: open github page
+                linkedin: open linkedin page
+                ...
+                `.replace(/  +/g, ""),
+      status: "",
+    };
     updateState(state, setState, commandLine, result);
     return result;
   },
   whoami(state, setState, commandLine) {
-    const result = "andredurao";
+    const result = {
+      content: "andredurao",
+      status: "",
+    };
     updateState(state, setState, commandLine, result);
     return result;
   },
   ls(state, setState, commandLine) {
     const files = Object.keys(terminalFiles);
-    const result = files.join("\n");
+    const result = {
+      content: files.join("\n"),
+      status: "",
+    };
     updateState(state, setState, commandLine, result);
     return result;
   },
   cat(state, setState, commandLine, f) {
-    let result = "";
+    let result = {};
     if (terminalFiles[f]) {
-      result = terminalFiles[f];
+      result = {
+        content: terminalFiles[f],
+        status: "",
+      };
     } else {
-      result = `cat: ${f}: No such file or directory`;
+      result = {
+        content: `cat: ${f}: No such file or directory`,
+        status: "error",
+      };
     }
     updateState(state, setState, commandLine, result);
     return result;
@@ -91,7 +111,10 @@ export const terminalParse = (commandLine, state, setState) => {
       [state, setState, commandLine, params],
     );
   } else {
-    commandResult = `${command}: command not found`;
+    commandResult = {
+      content: `${command}: command not found`,
+      status: "err",
+    };
     updateState(state, setState, commandLine, commandResult);
   }
   return commandResult;

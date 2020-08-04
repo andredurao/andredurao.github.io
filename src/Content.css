@@ -2,3 +2,11 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+pre.err {
+  color: #c3707d;
+}
+
+pre.ok {
+  color: #6ca27c;
+}

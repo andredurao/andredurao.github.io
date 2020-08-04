@@ -7,8 +7,8 @@
 
 ### Functions
 
-- [ ] print
-- [ ] print with status [ok, error] using old classNames
+- [x] print
+- [x] print with status [ok, error] using old classNames
 - [x] tabComplete
 - [ ] showKey
 - [x] run
