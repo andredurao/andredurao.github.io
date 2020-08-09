@@ -10,7 +10,7 @@
 - [x] print
 - [x] print with status [ok, error] using old classNames
 - [x] tabComplete
-- [ ] showKey
+- [x] showKey
 - [x] run
 - [x] up/down history
 - [x] inputText
@@ -25,6 +25,7 @@
 - [ ] github
 - [ ] linkedin
 - [x] scroll screen after command
+- [ ] fake type commands
 - [ ] github status page: https://github.com/anuraghazra/github-readme-stats
 - [ ] https://github-readme-stats.vercel.app/api?username=andredurao&show_icons=true&hide_border=true
 - [ ] https://github-readme-stats.vercel.app/api/top-langs/?username=andredurao&hide=vim%20script

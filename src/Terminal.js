@@ -10,6 +10,7 @@ function Terminal() {
       history: [],
       historyIndex: 0,
       results: [],
+      keyClassName: "hidden",
     },
   );
 
@@ -84,7 +85,7 @@ function Terminal() {
           value={state.command}
         />
       </div>
-      <div id="key" className="hidden">
+      <div id="key" className={state.keyClassName}>
         ⏎
       </div>
     </div>
