@@ -56,6 +56,16 @@ const terminalFunctions = {
     updateState(state, setState, commandLine, result);
     return result;
   },
+  github(state, setState, commandLine) {
+    const result = { content: "", status: "" };
+    updateState(state, setState, commandLine, result);
+    window.open("https://github.com/andredurao");
+  },
+  linkedin(state, setState, commandLine) {
+    const result = { content: "", status: "" };
+    updateState(state, setState, commandLine, result);
+    window.open("https://www.linkedin.com/in/andre-durao");
+  },
   cat(state, setState, commandLine, f) {
     let result = {};
     if (terminalFiles[f]) {

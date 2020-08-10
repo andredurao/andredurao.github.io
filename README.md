@@ -14,18 +14,19 @@
 - [x] run
 - [x] up/down history
 - [x] inputText
-- [ ] showLink
 - [x] clear
 - [x] echo
 - [x] help
 - [x] ls
 - [x] cat
 - [x] whoami
-- [ ] cv
-- [ ] github
-- [ ] linkedin
+- [x] cv
+- [x] github
+- [x] linkedin
 - [x] scroll screen after command
+- [ ] showLink
 - [ ] fake type commands
+- [ ] clear the command when key down moves to the max
 - [ ] github status page: https://github.com/anuraghazra/github-readme-stats
 - [ ] https://github-readme-stats.vercel.app/api?username=andredurao&show_icons=true&hide_border=true
 - [ ] https://github-readme-stats.vercel.app/api/top-langs/?username=andredurao&hide=vim%20script
