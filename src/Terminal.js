@@ -68,6 +68,7 @@ function Terminal() {
             command={result.command}
             content={result.content}
             status={result.status}
+            contentKind={result.contentKind}
           />
         ))
       }

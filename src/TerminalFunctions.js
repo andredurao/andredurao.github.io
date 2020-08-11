@@ -2,6 +2,7 @@ import terminalFiles from "./FileSystem";
 
 const updateState = (state, setState, commandLine, result) => {
   const commandResult = {
+    ...result,
     command: `~ $ ${commandLine}`,
     content: result.content,
     status: result.status,
@@ -68,10 +69,13 @@ const terminalFunctions = {
   },
   cat(state, setState, commandLine, f) {
     let result = {};
-    if (terminalFiles[f]) {
+    const filename = f[0];
+    const contentKind = filename.endsWith(".link") ? "link" : "text";
+    if (terminalFiles[filename]) {
       result = {
-        content: terminalFiles[f],
+        content: terminalFiles[filename],
         status: "",
+        contentKind,
       };
     } else {
       result = {

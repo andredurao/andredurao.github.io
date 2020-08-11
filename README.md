@@ -24,7 +24,7 @@
 - [x] github
 - [x] linkedin
 - [x] scroll screen after command
-- [ ] showLink
+- [x] showLink
 - [ ] fake type commands
 - [ ] clear the command when key down moves to the max
 - [ ] github status page: https://github.com/anuraghazra/github-readme-stats
