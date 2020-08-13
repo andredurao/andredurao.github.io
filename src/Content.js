@@ -6,7 +6,7 @@ function Content({
 }) {
   let contentResult;
   if (contentKind === "link") {
-    contentResult = <a href={content} target="_blank" rel="noreferrer">{content}</a>;
+    contentResult = <a href={content} target="_blank" rel="noopener noreferrer">{content}</a>;
   } else {
     contentResult = <pre className={status}>{content}</pre>;
   }

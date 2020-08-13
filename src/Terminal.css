@@ -2,13 +2,12 @@
 
 .Terminal {
   background: #1d252c;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.75);
   font-family: IBM Plex Mono;
   font-size: 16pt;
 }
 
 #prompt {
-  background: #1d252c;
   border: none;
   color: rgba(255, 255, 255, 0.75);
   font-weight: bold;
@@ -34,6 +33,11 @@ pre {
 .input {
   display: grid;
   grid-template-columns: 2.2em auto;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.input span{
+  color: rgba(255, 255, 255, 0.75);
 }
 
 #key {
