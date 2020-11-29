@@ -57,6 +57,36 @@ function Terminal() {
     resultsEndRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
+  const keystrokeDelay = 200
+  const startTime = 2000
+  const keyboardInput = 'whoami\ncat about.md\n';
+  let currentText = keyboardInput;
+  let textIndex = 0;
+  let mainIntervalID = null;
+
+  const inputText = () => {
+    if (textIndex < currentText.length) {
+      const char = currentText[textIndex];
+      if (char === '\n') {
+        terminalParse(state.command, state, setState);
+        state.command = '';
+      } else {
+        state.command += char;
+      }
+      setState({ ...state, command: state.command });
+      textIndex++;
+    } else {
+      clearInterval(mainIntervalID);
+    }
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      mainIntervalID = !!!mainIntervalID && setInterval(inputText, keystrokeDelay);
+    }, startTime);
+    return () => clearInterval(mainIntervalID);
+  }, []);
+
   useEffect(scrollToBottom, [state.results]);
 
   return (
