@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./Terminal.css";
 import Content from "./Content";
 import { terminalParse, tabComplete } from "./TerminalFunctions";
@@ -21,6 +21,7 @@ function Terminal() {
     const commandLine = event.target.value;
     if (event.key === "Enter") {
       terminalParse(commandLine, state, setState);
+      setTimeout(() => { scrollToBottom(); }, 25);
     } else if (event.key === "ArrowUp") {
       if (state.historyIndex <= state.history.length && state.historyIndex > 0) {
         const newIndex = state.historyIndex - 1;
@@ -50,10 +51,12 @@ function Terminal() {
     }
   };
 
-  const resultsEndRef = useRef(null);
-
   const scrollToBottom = () => {
-    resultsEndRef.current.scrollIntoView({ behavior: "smooth" });
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      left: 0,
+      behavior: 'smooth'
+    });
   };
 
   const keystrokeDelay = 200
@@ -86,8 +89,6 @@ function Terminal() {
     return () => clearInterval(mainIntervalID);
   }, []);
 
-  useEffect(scrollToBottom, [window.results]);
-
   return (
     <div className="Terminal">
       {
@@ -101,7 +102,6 @@ function Terminal() {
           />
         ))
       }
-      <div ref={resultsEndRef} />
       <div className="input">
         <span>~ $</span>
         <input
