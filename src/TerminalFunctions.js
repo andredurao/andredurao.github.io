@@ -8,13 +8,14 @@ const updateState = (state, setState, commandLine, result) => {
     status: result.status,
   };
 
+  window.results.push(commandResult)
+
   const updatedState = {
     ...state,
     keyClassName: "fade-out",
     command: "",
     history: [...state.history, commandLine],
-    historyIndex: state.historyIndex + 1,
-    results: [...state.results, commandResult],
+    historyIndex: state.historyIndex + 1
   };
   setState(updatedState);
   setTimeout(() => { setState({ ...updatedState, keyClassName: "hidden" }); }, 200);
@@ -93,8 +94,8 @@ const terminalFunctions = {
       command: "",
       history: [...state.history, commandLine],
       historyIndex: state.historyIndex + 1,
-      results: [],
     };
+    window.results = [];
     setState(updatedState);
     setTimeout(() => { setState({ ...updatedState, keyClassName: "hidden" }); }, 200);
     return "";

@@ -9,7 +9,6 @@ function Terminal() {
       command: "",
       history: [],
       historyIndex: 0,
-      results: [],
       keyClassName: "hidden",
     },
   );
@@ -87,12 +86,12 @@ function Terminal() {
     return () => clearInterval(mainIntervalID);
   }, []);
 
-  useEffect(scrollToBottom, [state.results]);
+  useEffect(scrollToBottom, [window.results]);
 
   return (
     <div className="Terminal">
       {
-        state.results.map((result, index) => (
+        window.results.map((result, index) => (
           <Content
             key={index}
             command={result.command}
