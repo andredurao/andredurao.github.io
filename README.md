@@ -12,7 +12,6 @@
 - [x] tabComplete
 - [x] showKey
 - [x] run
-- [x] up/down history
 - [x] inputText
 - [x] clear
 - [x] echo
@@ -25,7 +24,8 @@
 - [x] linkedin
 - [x] scroll screen after command
 - [x] showLink
-- [ ] fake type commands
+- [x] fake type commands
+- [ ] up/down history
 - [ ] clear the command when key down moves to the max
 - [ ] github status page: https://github.com/anuraghazra/github-readme-stats
 - [ ] https://github-readme-stats.vercel.app/api?username=andredurao&show_icons=true&hide_border=true
