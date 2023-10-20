@@ -12,8 +12,8 @@ function Content({
   }
   return (
     <div className="Content">
-      <div id="prev">
-        <pre>{command}</pre>
+      <div className="prev">
+        <pre className="command">{command}</pre>
         { contentResult }
       </div>
     </div>

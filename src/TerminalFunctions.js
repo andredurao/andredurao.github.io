@@ -44,7 +44,7 @@ const terminalFunctions = {
   whoami(state, setState, commandLine) {
     const result = {
       content: "andredurao",
-      status: "",
+      status: "ok",
     };
     updateState(state, setState, commandLine, result);
     return result;
