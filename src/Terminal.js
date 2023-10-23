@@ -18,29 +18,32 @@ function Terminal() {
   };
 
   const handleKeyDown = (event) => {
+    console.log(window.isTyping)
+    if (window.isTyping) {
+      return
+    }
     const commandLine = event.target.value;
     if (event.key === "Enter") {
       terminalParse(commandLine, state, setState);
-      setTimeout(() => { scrollToBottom(); }, 25);
     } else if (event.key === "ArrowUp") {
-      if (state.historyIndex <= state.history.length && state.historyIndex > 0) {
-        const newIndex = state.historyIndex - 1;
+      console.log(event.key)
+      if (window.commandHistoryIndex <= window.commandHistory.length && window.commandHistoryIndex > 0) {
+        window.commandHistoryIndex--;
         setState(
           {
             ...state,
-            command: state.history[newIndex],
-            historyIndex: newIndex,
+            command: window.commandHistory[window.commandHistoryIndex],
           },
         );
       }
     } else if (event.key === "ArrowDown") {
-      if (state.historyIndex < state.history.length - 1 && state.historyIndex >= 0) {
-        const newIndex = state.historyIndex + 1;
+      console.log(event.key)
+      if (window.commandHistoryIndex < window.commandHistory.length - 1 && window.commandHistoryIndex >= 0) {
+        window.commandHistoryIndex++;
         setState(
           {
             ...state,
-            command: state.history[newIndex],
-            historyIndex: newIndex,
+            command: window.commandHistory[window.commandHistoryIndex],
           },
         );
       }
@@ -51,15 +54,7 @@ function Terminal() {
     }
   };
 
-  const scrollToBottom = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      left: 0,
-      behavior: 'smooth'
-    });
-  };
-
-  const keystrokeDelay = 200
+  const keystrokeDelay = 100
   const startTime = 2000
   const keyboardInput = 'whoami\ncat about.md\n';
   let currentText = keyboardInput;
@@ -78,6 +73,7 @@ function Terminal() {
       setState({ ...state, command: state.command });
       textIndex++;
     } else {
+      window.isTyping = false
       clearInterval(mainIntervalID);
     }
   }
@@ -113,6 +109,7 @@ function Terminal() {
           onKeyDown={handleKeyDown}
           onChange={handleChange}
           value={state.command}
+          disabled={window.isTyping}
         />
       </div>
       <div id="key" className={state.keyClassName}>

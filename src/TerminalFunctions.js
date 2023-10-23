@@ -14,9 +14,9 @@ const updateState = (state, setState, commandLine, result) => {
     ...state,
     keyClassName: "fade-out",
     command: "",
-    history: [...state.history, commandLine],
-    historyIndex: state.historyIndex + 1
   };
+  window.commandHistory.push(commandLine);
+  window.commandHistoryIndex++;
   setState(updatedState);
   setTimeout(() => { setState({ ...updatedState, keyClassName: "hidden" }); }, 200);
 };
@@ -92,9 +92,9 @@ const terminalFunctions = {
       ...state,
       keyClassName: "fade-out",
       command: "",
-      history: [...state.history, commandLine],
-      historyIndex: state.historyIndex + 1,
     };
+    window.commandHistory.push(commandLine);
+    window.commandHistoryHistoryIndex++;
     window.results = [];
     setState(updatedState);
     setTimeout(() => { setState({ ...updatedState, keyClassName: "hidden" }); }, 200);
@@ -136,5 +136,14 @@ export const terminalParse = (commandLine, state, setState) => {
     };
     updateState(state, setState, commandLine, commandResult);
   }
+  setTimeout(() => { scrollToBottom(); }, 50);
   return commandResult;
+};
+
+const scrollToBottom = () => {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    left: 0,
+    behavior: 'smooth'
+  });
 };
