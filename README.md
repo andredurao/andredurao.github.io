@@ -25,8 +25,11 @@
 - [x] scroll screen after command
 - [x] showLink
 - [x] fake type commands
-- [ ] up/down history
-- [ ] clear the command when key down moves to the max
+- [x] up/down history
+- [x] up/down history: move cursor to the end
+- [ ] up/down history: clear the command when key down moves to the max
+- [x] block keyboard typing while demo
+- [ ] terminal change cursor to block []
 - [ ] github status page: https://github.com/anuraghazra/github-readme-stats
 - [ ] https://github-readme-stats.vercel.app/api?username=andredurao&show_icons=true&hide_border=true
 - [ ] https://github-readme-stats.vercel.app/api/top-langs/?username=andredurao&hide=vim%20script
