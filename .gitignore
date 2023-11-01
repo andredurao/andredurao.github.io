@@ -2,3 +2,4 @@
 .ruby-version
 .rbenv-gemsets
 tmp/
+node_modules/
